@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Button, Card, CardContent, Typography } from '@material-ui/core'
+import getQuotes from './getQuotes'
+
+import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [quote, setQuote] = useState('')
+	const [author, setAuthor] = useState('')
+
+	const handleClick = () => {
+		getQuotes().then((data) => {
+			setQuote(data.content)
+			setAuthor(data.author)
+		})
+	}
+
+	return (
+		<div className="App">
+			<Typography variant="h2">Random quote generator</Typography>
+			<Card className="card">
+				<CardContent>
+					<Typography variant="h5">{quote}</Typography>
+					<Typography className="margin-top" color="textSecondary">{author}</Typography>
+					<hr />
+					<Button className="margin-top" color="primary" variant="outlined" onClick={() => handleClick()}>Generate quote</Button>
+				</CardContent>
+			</Card>
+		</div>
+	);
 }
 
 export default App;
