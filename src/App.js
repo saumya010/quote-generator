@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Card, CardContent, Typography } from '@material-ui/core'
 import getQuotes from './getQuotes'
 
@@ -7,6 +7,10 @@ import './App.css'
 function App() {
 	const [quote, setQuote] = useState('')
 	const [author, setAuthor] = useState('')
+
+	useEffect( () => {
+		handleClick()
+	}, [])
 
 	const handleClick = () => {
 		getQuotes().then((data) => {
