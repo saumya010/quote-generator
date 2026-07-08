@@ -1,4 +1,16 @@
 # Random Quote Generator
 
-A simple react app that generates random quotes.
-Built using React and fetching the data using axios through an api.
+A React + Vite app that fetches and displays a random quote.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```

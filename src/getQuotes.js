@@ -1,8 +1,10 @@
-import axios from "axios";
+const URL = "https://dummyjson.com/quotes/random";
 
-const URL = 'https://api.quotable.io/random'
-
-export default async () => {
-	const {data} = await axios.get(URL)
-	return data
-}
+export default async (signal) => {
+  const response = await fetch(URL, { signal });
+  if (!response.ok) {
+    throw new Error(`Failed to fetch quote: ${response.status}`);
+  }
+  const data = await response.json();
+  return { content: data.quote, author: data.author };
+};

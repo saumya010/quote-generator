@@ -1,22 +1,12 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-	background-color: beige;
-}
-
-.App {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	justify-content: center;
-	text-align: center;
-}
-
-.card {
-	justify-self: center;
-	margin-top: 25px;
-	width: 500px;
-}
-
-.margin-top {
-	margin-top: 10px;
+  margin: 0;
 }
